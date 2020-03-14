@@ -14,7 +14,7 @@ ipykernel = "*"
 numpy = "*"
 pandas = "*"
 lxml = "*"
-html5lib = "*"
+flask = "*"
 
 [requires]
 python_version = "3.7"

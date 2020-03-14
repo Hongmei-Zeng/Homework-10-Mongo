@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Mission to Mars</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid" style="background-color:black">
+      <h1 style="color:red;text-align:center"><strong>Mission to Mars</strong></h1>
+
+      <div class="jumbotron-fluid">
+        <ul>
+            {%for item in items%}
+              <h3><p style="color:red">Mars news title</p></h3>
+              <li><h5 style="color:white">{{ item.News_title }}:{{ item.news_title }}</h5></li>
+
+              <h3><p style="color:red">Mars news paragraph</p></h3>
+              <li><h5 style="color:white">{{ item.News_paragraph }}:{{ item.news_p }}</h5></li>  
+
+              <h3><p style="color:red">Featured Mars image</p></h3>
+              <li><h5 style="color:white"><img src="{{ item.JPL_image | safe }}"></h5></li> 
+              
+              <h3><p style="color:red">Mars weather</p></h3>
+              <li><h5 style="color:white">{{ item.weather }}:{{ item.mars_weather }}</h5></li>  
+
+              <h3><p style="color:red">Mars facts</p></h3>
+              <li><h5 style="color:white">{{ item.Mars_facts | safe }}</h5></li> 
+
+              <h3><p style="color:red">Hemispheres and Images</p></h3>
+              {%for i in range(4)%}
+                <li>{{ item.Hemispheres_and_images[i]["Hemisphere"] }}</li>
+                <li><img src="{{ item.Hemispheres_and_images[i]["Image"] }}"></li>                
+              {% endfor %}
+            {% endfor %}
+        </ul> 
+      </div>
+    </div>
+  </body>
+</html>
